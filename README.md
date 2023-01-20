@@ -7,6 +7,7 @@ Simple de usar, solo necesitas un usuario y listo.
 - Nodejs v16.17
 - Docker v20.10
 - Docker-compose v1.29.2
+- Redis server v=7.0.8
 
 
 ## Instalación en docker
