@@ -4,7 +4,7 @@ Simple de usar, solo necesitas un usuario y listo.
 
 ## Tecnologías
 
-- Nodejs v16.17,
+- Nodejs v16.17
 - Docker v20.10
 - Docker-compose v1.29.2
 
