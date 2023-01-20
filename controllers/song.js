@@ -11,9 +11,8 @@ const saveSong = async (req = request, res = response) => {
         res.json(data);
     } else {
         res.json('Canción/banda no encontrada');
-    }    
+    }
 }
-
 
 const listSong = async (req = request, res = response) => {
     const usuario = req.params.usuario;
@@ -37,6 +36,15 @@ const addSongToUser = async (song) => {
     }
 }
 
+const removeSongToUser = async (req = request, res = response) => {
+    const { usuario, id: cancion_id } = req.params;
+    const data = await client.HGETALL('usuario_favoritos');
+    const canciones = JSON.parse(data[usuario]);
+    canciones.splice(canciones.findIndex(cancion => cancion.cancion_id == cancion_id), 1);
+    await client.hSet('usuario_favoritos', usuario, JSON.stringify(canciones));
+    res.json();
+}
+
 module.exports = {
-    saveSong, listSong
+    saveSong, listSong, removeSongToUser
 }

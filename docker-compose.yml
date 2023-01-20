@@ -1,0 +1,17 @@
+version: '3'
+services:
+  my-music:
+    build: .
+    ports:
+      - "8085:8085"
+    container_name: my-music
+    depends_on:
+      - redis-server
+    links:
+      - redis-server
+  redis-server:
+    image: redis
+    hostname: redis-server
+    container_name: redis-server
+    ports:
+      - "6379:6379"
